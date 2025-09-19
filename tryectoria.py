@@ -107,3 +107,4 @@ plt.show()
 # print("Guardando animación...")
 # ani.save('particula_descenso.mp4', writer='ffmpeg', fps=30)
 # print("¡Animación guardada!")
+
