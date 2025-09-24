@@ -59,6 +59,7 @@ ax.plot_surface(X, Y, Z, cmap='viridis', alpha=0.6, edgecolor='none')
 ax.set_title("Animación de Partícula en Descenso por Gradiente", fontsize=16)
 ax.set_xlabel("Eje X"); ax.set_ylabel("Eje Y"); ax.set_zlabel("Eje Z")
 
+
 # Crear los objetos gráficos que se van a animar
 particula, = ax.plot([], [], [], 'ro', markersize=10, label='Partícula')
 rastro, = ax.plot([], [], [], 'r-', linewidth=2, label='Trayectoria')
@@ -73,7 +74,7 @@ def update(frame, tx, ty, tz):
 # Crear y ejecutar la animación
 ani = animation.FuncAnimation(fig, update, frames=len(trayectoria_x), 
                               fargs=(trayectoria_x, trayectoria_y, trayectoria_z),
-                              interval=20, blit=False, repeat=False)
+                              interval=2, blit=False, repeat=False)
 
 
 
@@ -104,7 +105,7 @@ print(f"Valor numérico de la integral de línea: {integral_de_linea:.4f}")
 plt.show()
 
 # Opcional: Guardar la animación (requiere ffmpeg)
-# print("Guardando animación...")
-# ani.save('particula_descenso.mp4', writer='ffmpeg', fps=30)
-# print("¡Animación guardada!")
+#print("Guardando animación...")
+#ani.save('particula_descenso.mp4', writer='ffmpeg', fps=30)
+#print("¡Animación guardada!")
 
