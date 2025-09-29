@@ -6,10 +6,10 @@
 # -- SECCIÓN 0: IMPORTACIÓN DE LIBRERÍAS --
 # ----------------------------------------------------------------------
 
-import numpy as np               # Importa NumPy para cálculos numéricos eficientes (vectores, matrices).
-import matplotlib.pyplot as plt  # Importa Matplotlib para crear figuras y ejes de la gráfica.
-from mpl_toolkits.mplot3d import Axes3D # Importa Axes3D, módulo esencial para la visualización 3D.
-import matplotlib.animation as animation # Importa el módulo para generar la animación de la partícula.
+import numpy as np               #  para cálculos numéricos eficientes (vectores, matrices).
+import matplotlib.pyplot as plt  # para crear figuras y ejes de la gráfica.
+from mpl_toolkits.mplot3d import Axes3D #  módulo esencial para la visualización 3D.
+import matplotlib.animation as animation # Importe el módulo para generar la animación de la partícula.
 
 # ----------------------------------------------------------------------
 # -- SECCIÓN 1: MÉTODO MATEMÁTICO Y CÁLCULO DE TRAYECTORIA --
@@ -30,7 +30,7 @@ def grad_f(x, y):
     return np.array([df_dx, df_dy])
 
 # Parámetros de la simulación
-p_inicial = np.array([0.0, 0.0])  # Punto inicial de prueba (0.0, 0.0).
+p_inicial = np.array([3.0, 3.0])  # Punto inicial de prueba (3.0, 3.0).
 h = 0.05                        # Tamaño del paso (learning rate), reducido para mayor estabilidad.
 limite = 5.0                      # Límite absoluto de la región Q (de -5.0 a 5.0).
 
@@ -62,7 +62,7 @@ for _ in range(10000):             # Bucle de iteración (máximo 10000 pasos).
     grad = grad_f(p_actual[0], p_actual[1]) # Calcula el gradiente en la posición actual.
     
     # Método de Euler: Nuevo punto = Punto actual - (paso * gradiente)
-    p_actual = p_actual - h * grad # El signo negativo asegura el movimiento en la dirección de máximo descenso.
+    p_actual = p_actual - h * grad  # El signo negativo asegura el movimiento en la dirección de máximo descenso.
     
     trayectoria_xy.append(p_actual) # Almacena la nueva posición.
 
@@ -95,8 +95,6 @@ ax.set_title("Animación de Partícula en Descenso por Gradiente", fontsize=16)
 # Etiquetas de los ejes
 ax.set_xlabel("Eje X"); ax.set_ylabel("Eje Y"); ax.set_zlabel("Eje Z")
 
-# [OPCIONAL] Descomentar y ajustar para fijar el ángulo de visión de la cámara.
-# ax.view_init(elev=30, azim=-60) 
 
 # Crear los objetos gráficos que se van a animar
 particula, = ax.plot([], [], [], 'ro', markersize=10, label='Partícula') # Objeto del punto rojo que se moverá.
